@@ -1,6 +1,6 @@
 ---
-const base = import.meta.env.BASE_URL;
-const profileImage = `${base}professor.jpg`;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const profileImage = `${base}/professor.jpg`;
 ---
 
 <!doctype html>
@@ -406,7 +406,7 @@ const profileImage = `${base}professor.jpg`;
   <body>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="brand" href="#top" aria-label="Home">王雅萍 · YA-PING WANG</a>
+        <a class="brand" href="#top" aria-label="Home">王雅萍 · NGA-PING ONG</a>
         <div class="nav-area">
           <nav aria-label="Primary navigation">
             <a href="#about"><span data-lang="zh">關於</span><span data-lang="en">About</span></a>
