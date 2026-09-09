@@ -1,4 +1,6 @@
 ---
+import Navbar from '../components/Navbar.astro';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const profileImage = `${base}/professor.jpg`;
 ---
@@ -12,7 +14,7 @@ const profileImage = `${base}/professor.jpg`;
       name="description"
       content="王雅萍副教授｜國立政治大學民族學系｜民族教育、台灣民族史、東南亞民族與現況、社區營造、民族學研究方法"
     />
-    <title>王雅萍｜NGA-PING ONG</title>
+    <title>王雅萍｜ONG NGA PING </title>
 
     <style>
       :root {
@@ -404,21 +406,9 @@ const profileImage = `${base}/professor.jpg`;
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="#top" aria-label="Home">王雅萍 · NGA-PING ONG</a>
-        <div class="nav-area">
-          <nav aria-label="Primary navigation">
-            <a href="#about"><span data-lang="zh">關於</span><span data-lang="en">About</span></a>
-            <a href="#research"><span data-lang="zh">研究</span><span data-lang="en">Research</span></a>
-            <a href="#publications"><span data-lang="zh">著作</span><span data-lang="en">Publications</span></a>
-            <a href="#teaching"><span data-lang="zh">教學</span><span data-lang="en">Teaching</span></a>
-            <a href="#contact"><span data-lang="zh">聯絡</span><span data-lang="en">Contact</span></a>
-          </nav>
-          <button class="lang-button" id="langButton" type="button" aria-label="Switch language">EN</button>
-        </div>
-      </div>
-    </header>
+  <Navbar />
+
+  <!-- 原本的首頁內容 -->
 
     <main id="top">
       <section class="hero">
