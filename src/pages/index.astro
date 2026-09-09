@@ -1,11 +1,676 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const base = import.meta.env.BASE_URL;
+const profileImage = `${base}professor.jpg`;
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="王雅萍副教授｜國立政治大學民族學系｜民族教育、台灣民族史、東南亞民族與現況、社區營造、民族學研究方法"
+    />
+    <title>王雅萍｜YA-PING WANG</title>
+
+    <style>
+      :root {
+        --bg: #f4f0e7;
+        --paper: #fffdf8;
+        --ink: #1d2824;
+        --muted: #66716b;
+        --line: #d8d2c5;
+        --accent: #315a4a;
+        --accent-soft: #dce6df;
+        --warm: #a85f3b;
+        --max: 1120px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+          "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+        line-height: 1.7;
+      }
+
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
+
+      .wrap {
+        width: min(calc(100% - 40px), var(--max));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(216, 210, 197, .9);
+        background: rgba(244, 240, 231, .94);
+        backdrop-filter: blur(14px);
+      }
+
+      .header-inner {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: .02em;
+        white-space: nowrap;
+      }
+
+      .nav-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: .92rem;
+        font-weight: 650;
+      }
+
+      nav a:hover { color: var(--accent); }
+
+      .lang-button {
+        border: 1px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: .88rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .hero {
+        padding: 80px 0 64px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(260px, .7fr);
+        align-items: center;
+        gap: 64px;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--warm);
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        font-size: .82rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Noto Serif TC", "Songti TC", serif;
+        font-size: clamp(3rem, 7vw, 6.7rem);
+        line-height: .98;
+        letter-spacing: -.035em;
+      }
+
+      .english-name {
+        margin: 14px 0 0;
+        color: var(--accent);
+        font-size: clamp(1.25rem, 2.4vw, 2rem);
+        font-weight: 750;
+        letter-spacing: .04em;
+      }
+
+      .role {
+        max-width: 760px;
+        margin: 26px 0 0;
+        font-size: clamp(1.08rem, 2vw, 1.32rem);
+        color: var(--muted);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        text-decoration: none;
+        font-weight: 760;
+      }
+
+      .button.primary {
+        color: white;
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .portrait {
+        aspect-ratio: 4 / 5;
+        border-radius: 28px;
+        overflow: hidden;
+        background:
+          linear-gradient(150deg, var(--accent-soft), #cbbda5);
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 60px rgba(49, 90, 74, .12);
+      }
+
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .portrait-fallback {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 28px;
+        text-align: center;
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      section.content-section {
+        padding: 72px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 60px;
+      }
+
+      .section-kicker {
+        margin: 0;
+        color: var(--warm);
+        font-size: .78rem;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: .11em;
+      }
+
+      h2 {
+        margin: 8px 0 0;
+        font-family: Georgia, "Noto Serif TC", "Songti TC", serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.12;
+      }
+
+      .lead {
+        margin-top: 0;
+        font-size: 1.12rem;
+        color: var(--muted);
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .pill-list li {
+        border: 1px solid var(--line);
+        background: rgba(255, 253, 248, .55);
+        border-radius: 999px;
+        padding: 9px 13px;
+        font-size: .92rem;
+        font-weight: 680;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        padding: 24px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+      }
+
+      .card p { margin: 0; color: var(--muted); }
+      .card .meta {
+        margin-bottom: 8px;
+        color: var(--warm);
+        font-size: .82rem;
+        font-weight: 800;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 22px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline-item .year {
+        color: var(--warm);
+        font-weight: 850;
+      }
+
+      .timeline-item h3 { margin: 0 0 4px; font-size: 1.05rem; }
+      .timeline-item p { margin: 0; color: var(--muted); }
+
+      .publication-list {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .publication {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .publication .year {
+        color: var(--warm);
+        font-weight: 850;
+      }
+
+      .publication p { margin: 0; }
+      .publication .venue { color: var(--muted); margin-top: 5px; }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .contact-card {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+      }
+
+      .contact-card .label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--muted);
+        font-size: .8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+      }
+
+      .contact-card a {
+        color: var(--accent);
+        font-weight: 760;
+        overflow-wrap: anywhere;
+      }
+
+      footer {
+        padding: 32px 0 48px;
+        color: var(--muted);
+        font-size: .86rem;
+      }
+
+      [data-lang="en"] { display: none; }
+      html[data-language="en"] [data-lang="zh"] { display: none; }
+      html[data-language="en"] [data-lang="en"] { display: initial; }
+
+      @media (max-width: 880px) {
+        .header-inner { min-height: 64px; }
+        nav {
+          max-width: 58vw;
+          overflow-x: auto;
+          scrollbar-width: none;
+          gap: 14px;
+        }
+        nav::-webkit-scrollbar { display: none; }
+        .hero { padding-top: 52px; }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .portrait {
+          width: min(100%, 420px);
+          order: -1;
+        }
+        .section-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .contact-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 640px) {
+        .wrap { width: min(calc(100% - 28px), var(--max)); }
+        .brand { font-size: .93rem; }
+        nav { max-width: 46vw; }
+        nav a { font-size: .83rem; }
+        .lang-button { padding: 7px 10px; }
+        .hero { padding: 34px 0 50px; }
+        .role { margin-top: 18px; }
+        section.content-section { padding: 52px 0; }
+        .cards { grid-template-columns: 1fr; }
+        .timeline-item,
+        .publication {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        .hero-actions .button { width: 100%; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="Home">王雅萍 · YA-PING WANG</a>
+        <div class="nav-area">
+          <nav aria-label="Primary navigation">
+            <a href="#about"><span data-lang="zh">關於</span><span data-lang="en">About</span></a>
+            <a href="#research"><span data-lang="zh">研究</span><span data-lang="en">Research</span></a>
+            <a href="#publications"><span data-lang="zh">著作</span><span data-lang="en">Publications</span></a>
+            <a href="#teaching"><span data-lang="zh">教學</span><span data-lang="en">Teaching</span></a>
+            <a href="#contact"><span data-lang="zh">聯絡</span><span data-lang="en">Contact</span></a>
+          </nav>
+          <button class="lang-button" id="langButton" type="button" aria-label="Switch language">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">
+              <span data-lang="zh">國立政治大學 · 民族學系</span>
+              <span data-lang="en">National Chengchi University · Department of Ethnology</span>
+            </p>
+            <h1>王雅萍</h1>
+            <p class="english-name">YA-PING WANG</p>
+            <p class="role">
+              <span data-lang="zh">副教授｜社會科學學院民族學系</span>
+              <span data-lang="en">Associate Professor, Department of Ethnology, College of Social Sciences</span>
+            </p>
+            <p class="role">
+              <span data-lang="zh">研究與教學聚焦民族教育、台灣民族史、東南亞民族與現況、社區營造與民族學研究方法。</span>
+              <span data-lang="en">Research and teaching in ethnic education, the history of ethnic groups in Taiwan, Southeast Asian ethnic studies, community development, and research methods in ethnology.</span>
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#research">
+                <span data-lang="zh">查看研究</span><span data-lang="en">Explore Research</span>
+              </a>
+              <a class="button" href="mailto:ong@nccu.edu.tw">
+                <span data-lang="zh">聯絡王老師</span><span data-lang="en">Contact</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="portrait" id="portraitBox">
+            <img
+              id="profileImage"
+              src={profileImage}
+              alt="王雅萍副教授照片"
+              loading="eager"
+            />
+            <div class="portrait-fallback" id="portraitFallback" hidden>
+              <span data-lang="zh">請將老師授權的照片命名為 professor.jpg，放進 public 資料夾。</span>
+              <span data-lang="en">Place an authorized portrait named professor.jpg in the public folder.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="about">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">01 · Profile</p>
+            <h2><span data-lang="zh">關於</span><span data-lang="en">About</span></h2>
+          </div>
+          <div>
+            <p class="lead">
+              <span data-lang="zh">王雅萍副教授現任國立政治大學民族學系專任教師，學術訓練橫跨歷史、民族學與教育，並長期投入原住民族教育與社會實踐。</span>
+              <span data-lang="en">Associate Professor Ya-Ping Wang is a faculty member in NCCU’s Department of Ethnology. Her academic training spans history, ethnology, and education, with sustained engagement in Indigenous education and community-based practice.</span>
+            </p>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="year"><span data-lang="zh">博士</span><span data-lang="en">Ph.D.</span></div>
+                <div>
+                  <h3><span data-lang="zh">國立政治大學教育學系</span><span data-lang="en">Department of Education, National Chengchi University</span></h3>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="year"><span data-lang="zh">碩士</span><span data-lang="en">M.A.</span></div>
+                <div>
+                  <h3><span data-lang="zh">國立政治大學民族學系</span><span data-lang="en">Department of Ethnology, National Chengchi University</span></h3>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="year"><span data-lang="zh">學士</span><span data-lang="en">B.A.</span></div>
+                <div>
+                  <h3><span data-lang="zh">國立成功大學歷史學系</span><span data-lang="en">Department of History, National Cheng Kung University</span></h3>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2016–2021</div>
+                <div>
+                  <h3><span data-lang="zh">國立政治大學民族學系系主任</span><span data-lang="en">Chair, Department of Ethnology, NCCU</span></h3>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2023–2026</div>
+                <div>
+                  <h3><span data-lang="zh">國立政治大學大學社會責任辦公室副執行長</span><span data-lang="en">Deputy Chief Executive Officer, University Social Responsibility Office, NCCU</span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="research">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">02 · Research</p>
+            <h2><span data-lang="zh">研究與實踐</span><span data-lang="en">Research & Practice</span></h2>
+          </div>
+          <div>
+            <p class="lead">
+              <span data-lang="zh">研究議題連結教育、歷史、民族誌與社區實踐，關注知識如何在教育制度、語言傳承與地方生活中被建構與延續。</span>
+              <span data-lang="en">Her work connects education, history, ethnographic inquiry, and community practice, examining how knowledge is formed and sustained through educational institutions, language transmission, and local life.</span>
+            </p>
+
+            <ul class="pill-list">
+              <li><span data-lang="zh">民族教育</span><span data-lang="en">Ethnic Education</span></li>
+              <li><span data-lang="zh">台灣民族史</span><span data-lang="en">Ethnic History of Taiwan</span></li>
+              <li><span data-lang="zh">東南亞民族與現況</span><span data-lang="en">Southeast Asian Ethnic Studies</span></li>
+              <li><span data-lang="zh">社區營造</span><span data-lang="en">Community Development</span></li>
+              <li><span data-lang="zh">民族學研究方法</span><span data-lang="en">Research Methods in Ethnology</span></li>
+            </ul>
+
+            <div class="cards" style="margin-top: 28px;">
+              <article class="card">
+                <p class="meta">2026–2027</p>
+                <h3><span data-lang="zh">原住民族語言學習中心補助計畫</span><span data-lang="en">Indigenous Language Learning Center Grant Project</span></h3>
+                <p><span data-lang="zh">計畫主持人</span><span data-lang="en">Principal Investigator</span></p>
+              </article>
+              <article class="card">
+                <p class="meta">2025</p>
+                <h3><span data-lang="zh">泰雅族知識研究中心</span><span data-lang="en">Atayal Knowledge Research Center</span></h3>
+                <p><span data-lang="zh">大專校院原住民族知識研究中心計畫協同主持人</span><span data-lang="en">Co-Principal Investigator, Indigenous Knowledge Research Center project</span></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="publications">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">03 · Publications</p>
+            <h2><span data-lang="zh">精選著作</span><span data-lang="en">Selected Publications</span></h2>
+          </div>
+          <div>
+            <div class="publication-list">
+              <article class="publication">
+                <div class="year">2022</div>
+                <div>
+                  <p>〈迎接全民原教時代：談全民原教在高等教育端的推動〉</p>
+                  <p class="venue">《原教界：原住民族教育情報誌》106，22–25。</p>
+                </div>
+              </article>
+              <article class="publication">
+                <div class="year">2021</div>
+                <div>
+                  <p>〈從九年一貫到十二年國教的原住民族語文領域綱要〉</p>
+                  <p class="venue">《師友雙月刊》628，47–49。</p>
+                </div>
+              </article>
+              <article class="publication">
+                <div class="year">2020</div>
+                <div>
+                  <p>「部落大学カリキュラムから烏来女性のエンパワーメント、工芸復興への展開」</p>
+                  <p class="venue">『日本台湾学会報』22，21–40。</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button" href="https://ah.lib.nccu.edu.tw/scholar?id=350&locale=zh_TW" target="_blank" rel="noreferrer">
+                <span data-lang="zh">完整學術著作</span><span data-lang="en">Full Academic Record</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="teaching">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">04 · Teaching</p>
+            <h2><span data-lang="zh">教學</span><span data-lang="en">Teaching</span></h2>
+          </div>
+          <div>
+            <div class="cards">
+              <article class="card">
+                <p class="meta">Fall 2026 · 115-1</p>
+                <h3><span data-lang="zh">原住民族教育</span><span data-lang="en">Indigenous Education</span></h3>
+                <p><span data-lang="zh">以原住民族教育政策、文化差異、語言與教育實務為核心。</span><span data-lang="en">Focused on Indigenous education policy, cultural difference, language, and educational practice.</span></p>
+              </article>
+              <article class="card">
+                <p class="meta"><span data-lang="zh">學分學程相關課程</span><span data-lang="en">Program Courses</span></p>
+                <h3><span data-lang="zh">原住民族知識與部落學習</span><span data-lang="en">Indigenous Knowledge & Community Learning</span></h3>
+                <p><span data-lang="zh">包含原住民族知識體系、原住民族語國家發展、部落學習與體驗等課程。</span><span data-lang="en">Including Indigenous Knowledge Systems, Indigenous Languages and National Development, and Community Learning and Experience.</span></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="contact">
+        <div class="wrap section-grid">
+          <div>
+            <p class="section-kicker">05 · Contact</p>
+            <h2><span data-lang="zh">聯絡資訊</span><span data-lang="en">Contact</span></h2>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <span class="label">Email</span>
+              <a href="mailto:ong@nccu.edu.tw">ong@nccu.edu.tw</a>
+            </div>
+            <div class="contact-card">
+              <span class="label"><span data-lang="zh">校內分機</span><span data-lang="en">Extension</span></span>
+              <strong>51552</strong>
+            </div>
+            <div class="contact-card">
+              <span class="label">ORCID</span>
+              <a href="https://orcid.org/0000-0003-3721-2747" target="_blank" rel="noreferrer">0000-0003-3721-2747</a>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 20px;">
+            <a class="button" href="https://ethnos.nccu.edu.tw/PageStaffing/Detail?fid=9618&id=2995" target="_blank" rel="noreferrer">
+              <span data-lang="zh">政大民族學系教師頁</span><span data-lang="en">NCCU Faculty Profile</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span data-lang="zh">王雅萍副教授｜國立政治大學民族學系</span>
+        <span data-lang="en">Associate Professor Ya-Ping Wang · Department of Ethnology, NCCU</span>
+      </div>
+    </footer>
+
+    <script>
+      const html = document.documentElement;
+      const button = document.querySelector('#langButton');
+      const image = document.querySelector('#profileImage');
+      const fallback = document.querySelector('#portraitFallback');
+
+      function setLanguage(lang) {
+        html.dataset.language = lang;
+        html.lang = lang === 'en' ? 'en' : 'zh-Hant';
+        button.textContent = lang === 'en' ? '中文' : 'EN';
+        localStorage.setItem('site-language', lang);
+      }
+
+      const savedLanguage = localStorage.getItem('site-language');
+      setLanguage(savedLanguage === 'en' ? 'en' : 'zh');
+
+      button.addEventListener('click', () => {
+        setLanguage(html.dataset.language === 'en' ? 'zh' : 'en');
+      });
+
+      image.addEventListener('error', () => {
+        image.hidden = true;
+        fallback.hidden = false;
+      });
+    </script>
+  </body>
+</html>
