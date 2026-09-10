@@ -37,25 +37,56 @@ const {
 </html>
 
 <style is:global>
+  :root {
+    --background: #f4efe6;
+    --text: #17251f;
+    --text-secondary: #59635e;
+    --green: #2f6652;
+    --brown: #a85d38;
+    --border: #d8d1c5;
+  }
+
   * {
     box-sizing: border-box;
   }
 
   html {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
     scroll-behavior: smooth;
   }
 
   body {
+    min-height: 100vh;
     margin: 0;
-    background: #f4efe6;
-    color: #17251f;
+    padding: 0;
+
+    background: var(--background);
+    color: var(--text);
+
     font-family:
       Arial,
       "Noto Sans TC",
+      "PingFang TC",
+      "Microsoft JhengHei",
       sans-serif;
   }
 
   a {
     color: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
   }
 </style>
