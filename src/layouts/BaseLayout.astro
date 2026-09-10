@@ -1,0 +1,61 @@
+---
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = '國立政治大學民族學系王雅萍副教授個人網站'
+} = Astro.props;
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content={description}
+    />
+
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #f4efe6;
+    color: #17251f;
+    font-family:
+      Arial,
+      "Noto Sans TC",
+      sans-serif;
+  }
+
+  a {
+    color: inherit;
+  }
+</style>
