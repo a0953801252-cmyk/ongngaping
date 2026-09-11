@@ -1,24 +1,307 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>著作｜王雅萍 Ong Nga Ping</title>
-  </head>
+<BaseLayout
+  title="著作｜王雅萍 Ong Nga Ping"
+  description="國立政治大學民族學系王雅萍副教授學術著作與研究成果"
+>
+  <main class="publications-page">
 
-  <body>
-    <Navbar />
-.about-page {
-  width: min(1050px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 100px 0 130px;
-  background: white;
-}
-    <main>
+    <header class="page-header">
+      <p class="eyebrow">PUBLICATIONS</p>
+
       <h1>著作</h1>
-    </main>
-  </body>
-</html>
+
+      <p class="subtitle">
+        Publications
+      </p>
+
+      <p class="intro">
+        本頁整理王雅萍副教授之學術研究成果，
+        包括期刊論文、專書與專書篇章、會議論文及其他研究成果。
+      </p>
+    </header>
+
+    <!-- 期刊論文 -->
+    <section>
+      <p class="section-label">JOURNAL ARTICLES</p>
+
+      <h2>期刊論文</h2>
+
+      <div class="publication-group">
+        <div class="publication-placeholder">
+          <span class="number">01</span>
+
+          <div>
+            <h3>期刊論文</h3>
+
+            <p>
+              Journal Articles
+            </p>
+
+            <p class="note">
+              著作資料將依老師正式學術履歷與校方資料逐步整理。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 專書 -->
+    <section>
+      <p class="section-label">BOOKS & BOOK CHAPTERS</p>
+
+      <h2>專書與專書篇章</h2>
+
+      <div class="publication-group">
+        <div class="publication-placeholder">
+          <span class="number">02</span>
+
+          <div>
+            <h3>專書與專書篇章</h3>
+
+            <p>
+              Books and Book Chapters
+            </p>
+
+            <p class="note">
+              本區將收錄專書、專書篇章及相關出版成果。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 會議論文 -->
+    <section>
+      <p class="section-label">CONFERENCE PAPERS</p>
+
+      <h2>會議論文</h2>
+
+      <div class="publication-group">
+        <div class="publication-placeholder">
+          <span class="number">03</span>
+
+          <div>
+            <h3>會議論文</h3>
+
+            <p>
+              Conference Papers
+            </p>
+
+            <p class="note">
+              本區將整理國內外研討會與學術會議發表成果。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 其他研究成果 -->
+    <section>
+      <p class="section-label">OTHER WORKS</p>
+
+      <h2>其他研究成果</h2>
+
+      <div class="publication-group">
+        <div class="publication-placeholder">
+          <span class="number">04</span>
+
+          <div>
+            <h3>其他著作與研究成果</h3>
+
+            <p>
+              Other Publications and Research Outputs
+            </p>
+
+            <p class="note">
+              包括研究報告、評論文章及其他相關學術成果。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 官方資料 -->
+    <section>
+      <p class="section-label">OFFICIAL PROFILE</p>
+
+      <h2>完整著作資料</h2>
+
+      <p class="official-description">
+        完整且最新的學術著作資料，可參閱國立政治大學民族學系官方教師頁面。
+      </p>
+
+      <a
+        class="official-link"
+        href="https://ethnos.nccu.edu.tw/PageStaffing/Detail?fid=9618&id=2995"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        查看民族學系官方資料
+        <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .publications-page {
+    width: min(1050px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 100px 0 130px;
+  }
+
+  .page-header {
+    max-width: 850px;
+    padding-bottom: 80px;
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0 0 14px;
+    color: var(--brown);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    margin: 18px 0 0;
+    color: var(--green);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 36px 0 0;
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  h2 {
+    margin: 8px 0 38px;
+    color: var(--text);
+    font-size: clamp(28px, 4vw, 38px);
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 21px;
+    line-height: 1.5;
+  }
+
+  .publication-group {
+    width: 100%;
+  }
+
+  .publication-placeholder {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 25px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .number {
+    color: var(--brown);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .publication-placeholder p {
+    margin: 5px 0 0;
+    color: var(--green);
+    font-size: 15px;
+  }
+
+  .publication-placeholder .note {
+    max-width: 680px;
+    margin-top: 14px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .official-description {
+    max-width: 700px;
+    margin: 0 0 28px;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .official-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+
+    border: 1px solid var(--green);
+    border-radius: 999px;
+
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 700;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .official-link:hover {
+    background: var(--green);
+    color: var(--background);
+  }
+
+  @media (max-width: 700px) {
+    .publications-page {
+      width: calc(100% - 40px);
+      padding: 60px 0 80px;
+    }
+
+    .page-header {
+      padding-bottom: 55px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+    }
+
+    .intro {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+
+    .publication-placeholder {
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      padding: 26px 0;
+    }
+
+    .official-description {
+      font-size: 16px;
+    }
+  }
+</style>
