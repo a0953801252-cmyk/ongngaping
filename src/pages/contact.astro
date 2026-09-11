@@ -4,169 +4,114 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="聯絡｜王雅萍 Ong Nga Ping"
-  description="國立政治大學民族學系王雅萍副教授聯絡資訊"
+  description="王雅萍副教授聯絡資訊"
 >
-  <main class="contact-page">
+  <main class="page">
 
     <header class="page-header">
       <p class="eyebrow">CONTACT</p>
 
-      <h1>聯絡</h1>
-
-      <p class="subtitle">
-        Contact
-      </p>
-
-      <p class="intro">
-        如有研究合作、教學、學術活動或其他相關事務，
-        請透過下列方式聯絡。
-      </p>
+      <h1>
+        <span data-lang="zh">聯絡</span>
+        <span data-lang="en">Contact</span>
+      </h1>
     </header>
 
     <section>
       <p class="section-label">AFFILIATION</p>
 
-      <h2>任職單位</h2>
+      <h2>
+        <span data-lang="zh">任職單位</span>
+        <span data-lang="en">Affiliation</span>
+      </h2>
 
-      <div class="contact-item">
-        <div class="contact-label">
-          Institution
-        </div>
+      <p>
+        <span data-lang="zh">
+          國立政治大學社會科學學院民族學系
+        </span>
 
-        <div>
-          <h3>國立政治大學</h3>
-
-          <p>
-            社會科學學院民族學系
-          </p>
-
-          <p class="english">
-            Department of Ethnology,
-            College of Social Sciences,
-            National Chengchi University
-          </p>
-        </div>
-      </div>
+        <span data-lang="en">
+          Department of Ethnology,
+          College of Social Sciences,
+          National Chengchi University
+        </span>
+      </p>
     </section>
 
     <section>
       <p class="section-label">POSITION</p>
 
-      <h2>職稱</h2>
+      <h2>
+        <span data-lang="zh">職稱</span>
+        <span data-lang="en">Position</span>
+      </h2>
 
-      <div class="contact-item">
-        <div class="contact-label">
-          Position
-        </div>
-
-        <div>
-          <h3>副教授</h3>
-
-          <p class="english">
-            Associate Professor
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <p class="section-label">ACADEMIC PROFILE</p>
-
-      <h2>學術資料</h2>
-
-      <div class="link-list">
-
-        <a
-          class="profile-link"
-          href="https://ethnos.nccu.edu.tw/PageStaffing/Detail?fid=9618&id=2995"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div>
-            <span class="link-title">
-              民族學系教師資料
-            </span>
-
-            <span class="link-description">
-              Department of Ethnology Faculty Profile
-            </span>
-          </div>
-
-          <span class="arrow" aria-hidden="true">
-            ↗
-          </span>
-        </a>
-
-        <a
-          class="profile-link"
-          href="https://www.nccu.edu.tw/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div>
-            <span class="link-title">
-              國立政治大學
-            </span>
-
-            <span class="link-description">
-              National Chengchi University
-            </span>
-          </div>
-
-          <span class="arrow" aria-hidden="true">
-            ↗
-          </span>
-        </a>
-
-      </div>
+      <p>
+        <span data-lang="zh">副教授</span>
+        <span data-lang="en">Associate Professor</span>
+      </p>
     </section>
 
     <section>
       <p class="section-label">ADDRESS</p>
 
-      <h2>學校地址</h2>
+      <h2>
+        <span data-lang="zh">學校地址</span>
+        <span data-lang="en">Address</span>
+      </h2>
 
-      <div class="contact-item">
-        <div class="contact-label">
-          Address
-        </div>
+      <p>
+        <span data-lang="zh">
+          116011 臺北市文山區指南路二段 64 號
+        </span>
 
-        <div>
-          <h3>
-            國立政治大學
-          </h3>
+        <span data-lang="en">
+          No. 64, Sec. 2, Zhinan Rd.,
+          Wenshan Dist., Taipei City 116011, Taiwan
+        </span>
+      </p>
+    </section>
 
-          <p>
-            116011 臺北市文山區指南路二段 64 號
-          </p>
+    <section>
+      <p class="section-label">OFFICIAL PROFILE</p>
 
-          <p class="english">
-            No. 64, Sec. 2, Zhinan Rd.,
-            Wenshan Dist., Taipei City 116011,
-            Taiwan
-          </p>
-        </div>
-      </div>
+      <h2>
+        <span data-lang="zh">官方資料</span>
+        <span data-lang="en">Official Profile</span>
+      </h2>
+
+      <a
+        class="button"
+        href="https://ethnos.nccu.edu.tw/PageStaffing/Detail?fid=9618&id=2995"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-lang="zh">
+          民族學系教師資料 ↗
+        </span>
+
+        <span data-lang="en">
+          Faculty Profile ↗
+        </span>
+      </a>
     </section>
 
   </main>
 </BaseLayout>
 
 <style>
-  .contact-page {
+  .page {
     width: min(1050px, calc(100% - 48px));
     margin: 0 auto;
     padding: 100px 0 130px;
   }
 
   .page-header {
-    max-width: 850px;
     padding-bottom: 80px;
   }
 
   .eyebrow,
   .section-label {
-    margin: 0 0 14px;
     color: var(--brown);
     font-size: 14px;
     font-weight: 700;
@@ -174,25 +119,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h1 {
-    margin: 0;
-    color: var(--text);
+    margin: 12px 0 0;
     font-size: clamp(48px, 7vw, 82px);
-    line-height: 1.1;
-  }
-
-  .subtitle {
-    margin: 18px 0 0;
-    color: var(--green);
-    font-size: 22px;
-    font-weight: 600;
-  }
-
-  .intro {
-    max-width: 720px;
-    margin: 36px 0 0;
-    color: var(--text-secondary);
-    font-size: 18px;
-    line-height: 1.9;
   }
 
   section {
@@ -201,119 +129,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h2 {
-    margin: 8px 0 38px;
-    color: var(--text);
-    font-size: clamp(28px, 4vw, 38px);
+    font-size: 34px;
   }
 
-  h3 {
-    margin: 0 0 8px;
-    color: var(--text);
-    font-size: 21px;
-    line-height: 1.5;
-  }
+  p {
+    max-width: 760px;
 
-  .contact-item {
-    display: grid;
-    grid-template-columns: 170px 1fr;
-    gap: 42px;
-    padding: 28px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .contact-label {
-    color: var(--brown);
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  .contact-item p {
-    margin: 5px 0 0;
     color: var(--text-secondary);
-    font-size: 17px;
+
+    font-size: 18px;
     line-height: 1.8;
   }
 
-  .contact-item .english {
-    color: var(--text-secondary);
-    font-size: 15px;
-  }
+  .button {
+    display: inline-block;
 
-  .link-list {
-    border-top: 1px solid var(--border);
-  }
+    margin-top: 15px;
+    padding: 14px 22px;
 
-  .profile-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+    border: 1px solid var(--green);
+    border-radius: 999px;
 
-    padding: 26px 0;
-
-    border-bottom: 1px solid var(--border);
-
-    color: var(--text);
+    color: var(--green);
     text-decoration: none;
-  }
-
-  .link-title {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 19px;
     font-weight: 700;
   }
 
-  .link-description {
-    display: block;
-    color: var(--text-secondary);
-    font-size: 14px;
-  }
-
-  .arrow {
-    color: var(--green);
-    font-size: 22px;
-    transition: transform 0.2s ease;
-  }
-
-  .profile-link:hover .arrow {
-    transform: translate(4px, -4px);
-  }
-
   @media (max-width: 700px) {
-    .contact-page {
+    .page {
       width: calc(100% - 40px);
       padding: 60px 0 80px;
     }
 
-    .page-header {
-      padding-bottom: 55px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-    }
-
-    .intro {
+    p {
       font-size: 16px;
-    }
-
-    section {
-      padding: 40px 0;
-    }
-
-    .contact-item {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      padding: 26px 0;
-    }
-
-    .contact-item p {
-      font-size: 16px;
-    }
-
-    .profile-link {
-      padding: 22px 0;
     }
   }
 </style>

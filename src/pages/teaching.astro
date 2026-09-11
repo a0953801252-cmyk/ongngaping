@@ -4,73 +4,100 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="教學｜王雅萍 Ong Nga Ping"
-  description="國立政治大學民族學系王雅萍副教授教學與課程資訊"
+  description="王雅萍副教授教學資訊"
 >
-  <main class="teaching-page">
+  <main class="page">
+
     <header class="page-header">
       <p class="eyebrow">TEACHING</p>
-      <h1>教學</h1>
-      <p class="subtitle">Teaching</p>
+
+      <h1>
+        <span data-lang="zh">教學</span>
+        <span data-lang="en">Teaching</span>
+      </h1>
     </header>
 
     <section>
       <p class="section-label">COURSES</p>
-      <h2>課程</h2>
 
-      <div class="course-list">
-        <article class="course-item">
-          <div class="course-number">01</div>
+      <h2>
+        <span data-lang="zh">課程</span>
+        <span data-lang="en">Courses</span>
+      </h2>
 
-          <div>
-            <h3>原住民族教育</h3>
-            <p class="english">Indigenous Education</p>
-          </div>
-        </article>
+      <div class="course">
 
-        <article class="course-item">
-          <div class="course-number">02</div>
+        <div>
+          <span class="number">01</span>
+        </div>
 
-          <div>
-            <h3>民族學相關課程</h3>
-            <p class="english">
-              Courses in Ethnology and Indigenous Studies
-            </p>
-          </div>
-        </article>
+        <div>
+          <h3>
+            <span data-lang="zh">
+              原住民族教育
+            </span>
+
+            <span data-lang="en">
+              Indigenous Education
+            </span>
+          </h3>
+        </div>
+
       </div>
     </section>
 
     <section>
       <p class="section-label">TEACHING INTERESTS</p>
-      <h2>教學領域</h2>
 
-      <div class="interest-grid">
-        <div class="interest-item">
-          <h3>民族教育</h3>
-          <p>Ethnic and Indigenous Education</p>
+      <h2>
+        <span data-lang="zh">教學領域</span>
+        <span data-lang="en">Teaching Interests</span>
+      </h2>
+
+      <div class="grid">
+
+        <div>
+          <span data-lang="zh">民族教育</span>
+          <span data-lang="en">
+            Ethnic and Indigenous Education
+          </span>
         </div>
 
-        <div class="interest-item">
-          <h3>臺灣民族史</h3>
-          <p>Ethnic History of Taiwan</p>
+        <div>
+          <span data-lang="zh">臺灣民族史</span>
+          <span data-lang="en">
+            Ethnic History of Taiwan
+          </span>
         </div>
 
-        <div class="interest-item">
-          <h3>東南亞民族與現況</h3>
-          <p>Ethnic Groups and Contemporary Southeast Asia</p>
+        <div>
+          <span data-lang="zh">
+            東南亞民族與現況
+          </span>
+
+          <span data-lang="en">
+            Contemporary Southeast Asia
+          </span>
         </div>
 
-        <div class="interest-item">
-          <h3>民族學研究方法</h3>
-          <p>Research Methods in Ethnology</p>
+        <div>
+          <span data-lang="zh">
+            民族學研究方法
+          </span>
+
+          <span data-lang="en">
+            Research Methods in Ethnology
+          </span>
         </div>
+
       </div>
     </section>
+
   </main>
 </BaseLayout>
 
 <style>
-  .teaching-page {
+  .page {
     width: min(1050px, calc(100% - 48px));
     margin: 0 auto;
     padding: 100px 0 130px;
@@ -82,7 +109,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .eyebrow,
   .section-label {
-    margin: 0 0 14px;
     color: var(--brown);
     font-size: 14px;
     font-weight: 700;
@@ -90,17 +116,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h1 {
-    margin: 0;
-    color: var(--text);
+    margin: 12px 0 0;
     font-size: clamp(48px, 7vw, 82px);
-    line-height: 1.1;
-  }
-
-  .subtitle {
-    margin: 18px 0 0;
-    color: var(--green);
-    font-size: 22px;
-    font-weight: 600;
   }
 
   section {
@@ -109,86 +126,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h2 {
-    margin: 8px 0 38px;
-    color: var(--text);
-    font-size: clamp(28px, 4vw, 38px);
+    font-size: 34px;
   }
 
-  h3 {
-    margin: 0 0 6px;
-    color: var(--text);
-    font-size: 21px;
-  }
-
-  .english {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 15px;
-  }
-
-  .course-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .course-item {
+  .course {
     display: grid;
     grid-template-columns: 70px 1fr;
-    gap: 25px;
+
     padding: 30px 0;
+
     border-top: 1px solid var(--border);
   }
 
-  .course-number {
+  .number {
     color: var(--brown);
-    font-size: 14px;
     font-weight: 700;
   }
 
-  .interest-grid {
+  .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+
+    gap: 20px;
   }
 
-  .interest-item {
+  .grid > div {
     padding: 28px;
+
     border: 1px solid var(--border);
     border-radius: 12px;
-  }
 
-  .interest-item p {
-    margin: 8px 0 0;
-    color: var(--text-secondary);
-    line-height: 1.7;
+    font-size: 18px;
   }
 
   @media (max-width: 700px) {
-    .teaching-page {
+    .page {
       width: calc(100% - 40px);
       padding: 60px 0 80px;
     }
 
-    .page-header {
-      padding-bottom: 55px;
-    }
-
-    section {
-      padding: 40px 0;
-    }
-
-    .course-item {
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
-    }
-
-    .interest-grid {
+    .grid {
       grid-template-columns: 1fr;
-    }
-
-    .subtitle {
-      font-size: 18px;
     }
   }
 </style>
-    

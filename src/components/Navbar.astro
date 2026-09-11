@@ -3,55 +3,84 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <header class="site-header">
-  <a class="brand" href={`${base}/`}>
-    王雅萍 · Ong Nga Ping
-  </a>
+  <nav class="nav-links" aria-label="主要導覽">
 
-  <nav class="nav-links">
-    <a href={`${base}/`}>首頁</a>
-    <a href={`${base}/about/`}>關於</a>
-    <a href={`${base}/research/`}>研究</a>
-    <a href={`${base}/publications/`}>著作</a>
-    <a href={`${base}/teaching/`}>教學</a>
-    <a href={`${base}/contact/`}>聯絡</a>
+    <a href={`${base}/`}>
+      <span data-lang="zh">首頁</span>
+      <span data-lang="en">Home</span>
+    </a>
+
+    <a href={`${base}/about/`}>
+      <span data-lang="zh">關於</span>
+      <span data-lang="en">About</span>
+    </a>
+
+    <a href={`${base}/research/`}>
+      <span data-lang="zh">研究</span>
+      <span data-lang="en">Research</span>
+    </a>
+
+    <a href={`${base}/publications/`}>
+      <span data-lang="zh">著作</span>
+      <span data-lang="en">Publications</span>
+    </a>
+
+    <a href={`${base}/teaching/`}>
+      <span data-lang="zh">教學</span>
+      <span data-lang="en">Teaching</span>
+    </a>
+
+    <a href={`${base}/contact/`}>
+      <span data-lang="zh">聯絡</span>
+      <span data-lang="en">Contact</span>
+    </a>
+
+    <button
+      id="language-toggle"
+      class="language-toggle"
+      type="button"
+      aria-label="切換語言"
+    >
+      EN
+    </button>
+
   </nav>
 </header>
 
 <style>
   .site-header {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
 
-    padding: 28px 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 22px 5%;
 
     background: var(--background);
     border-bottom: 1px solid var(--border);
-  }
 
-  .brand {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    white-space: nowrap;
+    position: relative;
+    z-index: 100;
   }
 
   .nav-links {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 28px;
 
+    gap: 28px;
     margin-left: auto;
   }
 
   .nav-links a {
     color: var(--text-secondary);
+
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
+
+    white-space: nowrap;
 
     transition: color 0.2s ease;
   }
@@ -60,35 +89,113 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     color: var(--green);
   }
 
-  /* 平板 */
-  @media (max-width: 900px) {
+  .language-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin-left: 5px;
+
+    background: transparent;
+    color: var(--text);
+
+    border: 1.5px solid var(--text);
+    border-radius: 50%;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .language-toggle:hover {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--background);
+  }
+
+  @media (max-width: 850px) {
     .nav-links {
       gap: 18px;
     }
 
     .nav-links a {
-      font-size: 15px;
+      font-size: 14px;
+    }
+
+    .language-toggle {
+      width: 48px;
+      height: 48px;
     }
   }
 
-  /* 手機 */
   @media (max-width: 700px) {
     .site-header {
-      flex-direction: column;
-      gap: 18px;
-      padding: 20px;
+      padding: 16px 20px;
     }
 
     .nav-links {
       width: 100%;
-      justify-content: flex-start;
+
       flex-wrap: wrap;
-      gap: 12px 20px;
-      margin-left: 0;
+      justify-content: flex-end;
+
+      gap: 10px 15px;
     }
 
-    .nav-links a {
-      font-size: 15px;
+    .language-toggle {
+      width: 44px;
+      height: 44px;
+
+      font-size: 13px;
     }
   }
 </style>
+
+<script is:inline>
+  function initializeLanguageButton() {
+    const button =
+      document.getElementById('language-toggle');
+
+    if (!button) return;
+
+    function updateButton() {
+      const language =
+        document.documentElement.dataset.language || 'zh';
+
+      button.textContent =
+        language === 'en' ? '中文' : 'EN';
+    }
+
+    updateButton();
+
+    button.onclick = () => {
+      const current =
+        document.documentElement.dataset.language || 'zh';
+
+      const next =
+        current === 'zh' ? 'en' : 'zh';
+
+      document.documentElement.dataset.language = next;
+
+      document.documentElement.lang =
+        next === 'en' ? 'en' : 'zh-Hant';
+
+      localStorage.setItem(
+        'site-language',
+        next
+      );
+
+      updateButton();
+    };
+  }
+
+  initializeLanguageButton();
+</script>

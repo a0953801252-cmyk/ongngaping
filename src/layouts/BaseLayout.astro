@@ -27,11 +27,24 @@ const {
     />
 
     <title>{title}</title>
+
+    <script is:inline>
+      try {
+        const language =
+          localStorage.getItem('site-language') || 'zh';
+
+        document.documentElement.dataset.language = language;
+
+        document.documentElement.lang =
+          language === 'en' ? 'en' : 'zh-Hant';
+      } catch (error) {
+        document.documentElement.dataset.language = 'zh';
+      }
+    </script>
   </head>
 
   <body>
     <Navbar />
-
     <slot />
   </body>
 </html>
@@ -40,7 +53,7 @@ const {
   :root {
     --background: #f4efe6;
     --text: #17251f;
-    --text-secondary: #59635e;
+    --text-secondary: #65706b;
     --green: #2f6652;
     --brown: #a85d38;
     --border: #d8d1c5;
@@ -77,16 +90,15 @@ const {
     color: inherit;
   }
 
-  h1,
-  h2,
-  h3,
-  p {
-    box-sizing: border-box;
+  [data-lang="en"] {
+    display: none;
   }
 
-  button,
-  input,
-  textarea {
-    font: inherit;
+  html[data-language="en"] [data-lang="zh"] {
+    display: none !important;
+  }
+
+  html[data-language="en"] [data-lang="en"] {
+    display: revert;
   }
 </style>

@@ -4,169 +4,99 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="研究｜王雅萍 Ong Nga Ping"
-  description="國立政治大學民族學系王雅萍副教授研究領域與研究方向"
+  description="王雅萍副教授研究領域"
 >
-  <main class="research-page">
+  <main class="page">
 
     <header class="page-header">
       <p class="eyebrow">RESEARCH</p>
 
-      <h1>研究</h1>
-
-      <p class="subtitle">
-        Research
-      </p>
-
-      <p class="intro">
-        王雅萍副教授的研究與教學主要聚焦於民族教育、
-        臺灣民族史、東南亞民族與現況、社區營造，
-        以及民族學研究方法。
-      </p>
+      <h1>
+        <span data-lang="zh">研究</span>
+        <span data-lang="en">Research</span>
+      </h1>
     </header>
 
-    <!-- 研究領域 -->
     <section>
       <p class="section-label">RESEARCH INTERESTS</p>
 
-      <h2>研究領域</h2>
+      <h2>
+        <span data-lang="zh">研究領域</span>
+        <span data-lang="en">Research Interests</span>
+      </h2>
 
-      <div class="research-list">
+      <div class="list">
 
-        <article class="research-item">
-          <div class="number">01</div>
+        <article>
+          <span class="number">01</span>
 
           <div>
-            <h3>民族教育</h3>
-
-            <p class="english">
-              Ethnic and Indigenous Education
-            </p>
-
-            <p class="description">
-              關注原住民族教育、族群文化傳承、
-              教育政策與地方教育實踐等相關議題。
-            </p>
+            <h3>
+              <span data-lang="zh">民族教育</span>
+              <span data-lang="en">
+                Ethnic and Indigenous Education
+              </span>
+            </h3>
           </div>
         </article>
 
-        <article class="research-item">
-          <div class="number">02</div>
+        <article>
+          <span class="number">02</span>
 
           <div>
-            <h3>臺灣民族史</h3>
-
-            <p class="english">
-              Ethnic History of Taiwan
-            </p>
-
-            <p class="description">
-              探討臺灣不同族群的歷史發展、
-              社會互動及族群關係。
-            </p>
+            <h3>
+              <span data-lang="zh">臺灣民族史</span>
+              <span data-lang="en">
+                Ethnic History of Taiwan
+              </span>
+            </h3>
           </div>
         </article>
 
-        <article class="research-item">
-          <div class="number">03</div>
+        <article>
+          <span class="number">03</span>
 
           <div>
-            <h3>東南亞民族與現況</h3>
+            <h3>
+              <span data-lang="zh">
+                東南亞民族與現況
+              </span>
 
-            <p class="english">
-              Ethnic Groups and Contemporary Southeast Asia
-            </p>
-
-            <p class="description">
-              關注東南亞民族社會、文化變遷、
-              族群關係與當代發展。
-            </p>
+              <span data-lang="en">
+                Ethnic Groups and Contemporary Southeast Asia
+              </span>
+            </h3>
           </div>
         </article>
 
-        <article class="research-item">
-          <div class="number">04</div>
+        <article>
+          <span class="number">04</span>
 
           <div>
-            <h3>社區營造</h3>
-
-            <p class="english">
-              Community Development and Social Engagement
-            </p>
-
-            <p class="description">
-              關注地方社區、文化實踐、
-              社會參與以及大學與地方社會之間的合作。
-            </p>
+            <h3>
+              <span data-lang="zh">社區營造</span>
+              <span data-lang="en">
+                Community Development
+              </span>
+            </h3>
           </div>
         </article>
 
-        <article class="research-item">
-          <div class="number">05</div>
+        <article>
+          <span class="number">05</span>
 
           <div>
-            <h3>民族學研究方法</h3>
+            <h3>
+              <span data-lang="zh">
+                民族學研究方法
+              </span>
 
-            <p class="english">
-              Research Methods in Ethnology
-            </p>
-
-            <p class="description">
-              包括田野調查、民族誌、
-              質性研究與民族學相關研究方法。
-            </p>
+              <span data-lang="en">
+                Research Methods in Ethnology
+              </span>
+            </h3>
           </div>
         </article>
-
-      </div>
-    </section>
-
-    <!-- 研究特色 -->
-    <section>
-      <p class="section-label">RESEARCH APPROACH</p>
-
-      <h2>研究取向</h2>
-
-      <div class="approach-grid">
-
-        <div class="approach-item">
-          <span class="approach-number">01</span>
-
-          <h3>田野研究</h3>
-
-          <p>
-            Field Research
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <span class="approach-number">02</span>
-
-          <h3>民族誌</h3>
-
-          <p>
-            Ethnography
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <span class="approach-number">03</span>
-
-          <h3>地方實踐</h3>
-
-          <p>
-            Community Engagement
-          </p>
-        </div>
-
-        <div class="approach-item">
-          <span class="approach-number">04</span>
-
-          <h3>跨領域研究</h3>
-
-          <p>
-            Interdisciplinary Research
-          </p>
-        </div>
 
       </div>
     </section>
@@ -175,20 +105,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .research-page {
+  .page {
     width: min(1050px, calc(100% - 48px));
     margin: 0 auto;
     padding: 100px 0 130px;
   }
 
   .page-header {
-    max-width: 850px;
     padding-bottom: 80px;
   }
 
   .eyebrow,
   .section-label {
-    margin: 0 0 14px;
     color: var(--brown);
     font-size: 14px;
     font-weight: 700;
@@ -196,25 +124,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h1 {
-    margin: 0;
-    color: var(--text);
+    margin: 12px 0 0;
     font-size: clamp(48px, 7vw, 82px);
-    line-height: 1.1;
-  }
-
-  .subtitle {
-    margin: 18px 0 0;
-    color: var(--green);
-    font-size: 22px;
-    font-weight: 600;
-  }
-
-  .intro {
-    max-width: 760px;
-    margin: 36px 0 0;
-    color: var(--text-secondary);
-    font-size: 18px;
-    line-height: 1.9;
   }
 
   section {
@@ -223,27 +134,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   h2 {
-    margin: 8px 0 38px;
-    color: var(--text);
-    font-size: clamp(28px, 4vw, 38px);
+    font-size: 34px;
   }
 
-  h3 {
-    margin: 0 0 8px;
-    color: var(--text);
-    font-size: 21px;
-    line-height: 1.5;
-  }
-
-  .research-list {
-    width: 100%;
-  }
-
-  .research-item {
+  article {
     display: grid;
     grid-template-columns: 70px 1fr;
-    gap: 25px;
-    padding: 32px 0;
+
+    gap: 20px;
+
+    padding: 30px 0;
+
     border-top: 1px solid var(--border);
   }
 
@@ -253,81 +154,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 700;
   }
 
-  .english {
+  h3 {
     margin: 0;
-    color: var(--green);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .description {
-    max-width: 680px;
-    margin: 12px 0 0;
-    color: var(--text-secondary);
-    font-size: 17px;
-    line-height: 1.8;
-  }
-
-  .approach-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .approach-item {
-    padding: 30px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-  }
-
-  .approach-number {
-    display: block;
-    margin-bottom: 24px;
-    color: var(--brown);
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .approach-item p {
-    margin: 8px 0 0;
-    color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 21px;
   }
 
   @media (max-width: 700px) {
-    .research-page {
+    .page {
       width: calc(100% - 40px);
       padding: 60px 0 80px;
     }
 
-    .page-header {
-      padding-bottom: 55px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-    }
-
-    .intro {
-      font-size: 16px;
-    }
-
-    section {
-      padding: 40px 0;
-    }
-
-    .research-item {
+    article {
       grid-template-columns: 40px 1fr;
-      gap: 12px;
-      padding: 26px 0;
-    }
-
-    .description {
-      font-size: 16px;
-    }
-
-    .approach-grid {
-      grid-template-columns: 1fr;
     }
   }
 </style>
