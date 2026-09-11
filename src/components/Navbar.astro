@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     王雅萍 · Ong Nga Ping
   </a>
 
-  <nav>
+  <nav class="nav-links">
     <a href={`${base}/`}>首頁</a>
     <a href={`${base}/about/`}>關於</a>
     <a href={`${base}/research/`}>研究</a>
@@ -18,47 +18,76 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </header>
 
 <style>
-.site-header {
-  background: var(--background);
-}
+  .site-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 28px 5%;
+
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+  }
 
   .brand {
-    color: #17251f;
+    color: var(--text);
     text-decoration: none;
-    font-weight: 700;
     font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
   }
 
-  nav {
+  .nav-links {
     display: flex;
-    gap: 28px;
+    justify-content: flex-end;
     align-items: center;
+    gap: 28px;
+
+    margin-left: auto;
   }
 
-  nav a {
-    color: #59635e;
+  .nav-links a {
+    color: var(--text-secondary);
     text-decoration: none;
+    font-size: 16px;
     font-weight: 600;
+
+    transition: color 0.2s ease;
   }
 
-  nav a:hover {
-    color: #2f6652;
+  .nav-links a:hover {
+    color: var(--green);
   }
 
-  @media (max-width: 750px) {
+  /* 平板 */
+  @media (max-width: 900px) {
+    .nav-links {
+      gap: 18px;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+    }
+  }
+
+  /* 手機 */
+  @media (max-width: 700px) {
     .site-header {
       flex-direction: column;
-      align-items: flex-start;
       gap: 18px;
-      padding: 20px 24px;
+      padding: 20px;
     }
 
-    nav {
+    .nav-links {
+      width: 100%;
+      justify-content: flex-start;
       flex-wrap: wrap;
       gap: 12px 20px;
+      margin-left: 0;
     }
 
-    nav a {
+    .nav-links a {
       font-size: 15px;
     }
   }
