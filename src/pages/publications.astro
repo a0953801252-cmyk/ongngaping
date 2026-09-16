@@ -1,131 +1,975 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const recentStudents = [
+  {
+    year: '2026',
+    studentZh: '黃楚甯',
+    studentEn: 'Huang, Chu-Ning',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '傳統地機織者的織作實踐與美感詮釋',
+    titleEn:
+      'Traditional Ground Loom / Backstrap Loom Weavers’ Weaving Practice and Aesthetic Interpretation',
+    url:
+      'https://thesis.lib.nccu.edu.tw/detail/09d6259e30dae6013e348b8ed2addafd/',
+  },
+
+  {
+    year: '2026',
+    studentZh: '林龍溢',
+    studentEn: 'Lin, Long-Yi',
+    degreeZh: '博士',
+    degreeEn: 'Doctor',
+    roleZh: '共同指導：林美容、王雅萍',
+    roleEn: 'Co-advisors: Lin Mei-Rong and Ong Nga Ping',
+    titleZh:
+      '從土葬、火葬到環保自然葬：台北地區葬俗的轉變',
+    titleEn:
+      'From Burial and Cremation to Eco-Friendly Natural Burial: The Transformation of Funeral Customs in the Taipei Area',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/a8c69df6a61bd08afdcbb7b52f406b29/',
+  },
+
+  {
+    year: '2026',
+    studentZh: '陳羲',
+    studentEn: 'Chen, Hsi',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '新制上路：花蓮地區原漢通婚家庭子女以漢人姓名並列傳統名字取得原住民身分之族群認同研究',
+    titleEn:
+      'Ethnic Identity among Children of Indigenous–Han Intermarried Families in Hualien under the New Indigenous Status Naming System',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/31a4060285f8c537bb54e2cdc670a16b/',
+  },
+
+  {
+    year: '2025',
+    studentZh: '蘇儀庭',
+    studentEn: 'Su, Yi-Ting',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '以部落耆老為師教學場域建構之研究—以東埔部落為例',
+    titleEn:
+      'Constructing a Teaching Field with Tribal Elders as Teachers: A Case Study of the Tumpu Community',
+    url:
+      'https://thesis.lib.nccu.edu.tw/detail/5620c62cf7e86fce6541f49aff3a9665/',
+  },
+
+  {
+    year: '2025',
+    studentZh: '韋佳婷',
+    studentEn: 'Wee, Jia-Ting',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '為原民發聲：原住民族聲音保留地—以 Alian FM96.3 的教育文化節目內容為分析',
+    titleEn:
+      "Voices for Taiwan Indigenous Peoples: A Reserve for Indigenous Peoples' Voices—Analysis of Educational and Cultural Programs on Alian FM96.3",
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/16adbc10f53dce4e140f18a1ef639ad3/',
+  },
+
+  {
+    year: '2025',
+    studentZh: '林婉曄',
+    studentEn: 'Lin, Wan-Yeh',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '阿美族會所（Sefi 或 Taloan）文化的失去與重建',
+    titleEn:
+      'The Loss and Revitalization of the Amis Sefi or Taloan Communal House Culture',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/74bf38e5b1ea52352cb3df9b4365afa2/',
+  },
+
+  {
+    year: '2025',
+    studentZh: '林美艷',
+    studentEn: 'Lin, Mei-Yan',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '指導教授：王雅萍',
+    roleEn: 'Advisor: Ong Nga Ping',
+    titleZh:
+      '原住民族部落的新型態農業與社會組織之對話—以花蓮縣阿美族鶴岡文旦產業為例',
+    titleEn:
+      'Dialogue between New Agricultural Practices and Social Organization in Indigenous Communities: A Case Study of the Amis People’s Hegang Pomelo Industry in Hualien County',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/de80456b279aa24c2d9d2568b2f93731/',
+  },
+
+  {
+    year: '2025',
+    studentZh: '林東暭',
+    studentEn: 'Watan Kainu',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    roleZh: '共同指導：王雅萍、官大偉',
+    roleEn: 'Co-advisors: Ong Nga Ping and Kuan Da-Wei',
+    titleZh:
+      '從未消失的聲音：三峽大豹溪流域泰雅族傳統領域的故鄉復歸之聲',
+    titleEn:
+      'A Study Never Ceases: Claiming Traditional Territory of Tayal People in Llyung Bngciq',
+    url:
+      'https://thesis.lib.nccu.edu.tw/detail/c39df19f8d409e8dbb4bec234dbf9472/',
+  },
+];
+
+const earlierStudents = [
+  {
+    year: '2022',
+    studentZh: '林秀鈴',
+    studentEn: 'Lin, Hsiu-Ling',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    titleZh:
+      '都會區高中原住民藝能班的課程規劃與實施—以樹林高中原住民藝能班為例',
+    titleEn:
+      'Curriculum Planning and Implementation of Indigenous Arts Classes in Metropolitan High Schools—A Case Study of Shulin High School',
+    url:
+      'https://thesis.lib.nccu.edu.tw/detail/98a347c12ef9690d2a1a72ceff5f9763/',
+  },
+
+  {
+    year: '2022',
+    studentZh: '田雅頻',
+    studentEn: 'Ten Ya Pin',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    titleZh:
+      '從沉浸式族語教學幼兒園到太魯閣族語復振—以花蓮太魯閣族原鄉地區為例',
+    titleEn:
+      'From Immersive Indigenous Language Teaching Kindergarten to Truku Language Revitalization—A Case Study of Truku Indigenous Township in Hualien',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/58380f4815cc44ec749be38b86992c84/',
+  },
+
+  {
+    year: '2021',
+    studentZh: '林冠瑾',
+    studentEn: 'Lin, Kuan-Jinng',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    titleZh:
+      '消失與重現：烏來泰雅族織布復振與當代織女的民族誌研究',
+    titleEn:
+      'Disappearance and Reappearance: An Ethnographic Study of the Revival of Tayal Weaving in Ulay and Contemporary Women Weavers',
+    url:
+      'https://thesis.lib.nccu.edu.tw/thesis/detail/f32e6f4215d89b1c907e64c1f32e8a0c/',
+  },
+
+  {
+    year: '2015',
+    studentZh: '高秀玉',
+    studentEn: 'Kao, Hsiu-Yu',
+    degreeZh: '碩士',
+    degreeEn: 'Master',
+    titleZh:
+      '泰雅族家庭的族語傳承與使用',
+    titleEn:
+      'Language Inheritance and Language Use in Tayal Families',
+    url:
+      'https://thesis.lib.nccu.edu.tw/detail/7efcab4f1c2d783500844f38386b5b13/',
+  },
+];
 ---
 
 <BaseLayout
-  title="著作｜王雅萍 Ong Nga Ping"
-  description="王雅萍副教授學術著作"
+  title="指導學生｜王雅萍 Ong Nga Ping"
+  description="國立政治大學王雅萍副教授論文指導與學生研究成果"
 >
-  <main class="page">
+  <main class="supervision-page">
 
     <header class="page-header">
-      <p class="eyebrow">PUBLICATIONS</p>
+      <p class="eyebrow">
+        THESIS SUPERVISION
+      </p>
 
       <h1>
-        <span data-lang="zh">著作</span>
-        <span data-lang="en">Publications</span>
+        <span data-lang="zh">
+          指導學生
+        </span>
+
+        <span data-lang="en">
+          Student Supervision
+        </span>
       </h1>
+
+      <p class="intro">
+        <span data-lang="zh">
+          王雅萍教授歷年指導的學生研究，
+          涵蓋原住民族教育、族語復振、文化與工藝傳承、
+          族群認同、土地、部落產業、地方社會、
+          民俗與文化變遷等多元議題。
+        </span>
+
+        <span data-lang="en">
+          Student research supervised by Ong Nga Ping spans
+          Indigenous education, language revitalization,
+          cultural and craft transmission, ethnic identity,
+          land, community industries, local society,
+          folk culture, and cultural transformation.
+        </span>
+      </p>
     </header>
 
-    <section>
-      <p class="section-label">JOURNAL ARTICLES</p>
 
-      <h2>
-        <span data-lang="zh">期刊論文</span>
-        <span data-lang="en">Journal Articles</span>
-      </h2>
-    </section>
+    <!-- 近期指導 -->
 
     <section>
-      <p class="section-label">BOOKS & CHAPTERS</p>
+      <p class="section-label">
+        RECENT SUPERVISION
+      </p>
 
       <h2>
-        <span data-lang="zh">專書與專書篇章</span>
-        <span data-lang="en">
-          Books and Book Chapters
-        </span>
-      </h2>
-    </section>
-
-    <section>
-      <p class="section-label">CONFERENCE PAPERS</p>
-
-      <h2>
-        <span data-lang="zh">會議論文</span>
-        <span data-lang="en">Conference Papers</span>
-      </h2>
-    </section>
-
-    <section>
-      <p class="section-label">OFFICIAL PROFILE</p>
-
-      <h2>
-        <span data-lang="zh">完整著作資料</span>
-        <span data-lang="en">
-          Complete Publication Record
-        </span>
-      </h2>
-
-      <a
-        class="button"
-        href="https://ethnos.nccu.edu.tw/PageStaffing/Detail?fid=9618&id=2995"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
         <span data-lang="zh">
-          查看民族學系官方資料 ↗
+          近期指導學生
         </span>
 
         <span data-lang="en">
-          Official Faculty Profile ↗
+          Recent Supervision
         </span>
-      </a>
+      </h2>
+
+      <div class="student-list">
+        {
+          recentStudents.map((student) => (
+            <article class="student-item">
+
+              <div class="student-meta">
+                <span class="year">
+                  {student.year}
+                </span>
+
+                <span class="degree">
+                  <span data-lang="zh">
+                    {student.degreeZh}
+                  </span>
+
+                  <span data-lang="en">
+                    {student.degreeEn}
+                  </span>
+                </span>
+              </div>
+
+              <div class="student-content">
+
+                <p class="student-name">
+                  <span data-lang="zh">
+                    {student.studentZh}
+                  </span>
+
+                  <span data-lang="en">
+                    {student.studentEn}
+                  </span>
+                </p>
+
+                <h3>
+                  <span data-lang="zh">
+                    {student.titleZh}
+                  </span>
+
+                  <span data-lang="en">
+                    {student.titleEn}
+                  </span>
+                </h3>
+
+                <p class="advisor">
+                  <span data-lang="zh">
+                    {student.roleZh}
+                  </span>
+
+                  <span data-lang="en">
+                    {student.roleEn}
+                  </span>
+                </p>
+
+                <a
+                  class="thesis-link"
+                  href={student.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span data-lang="zh">
+                    查看論文資料 ↗
+                  </span>
+
+                  <span data-lang="en">
+                    View Thesis ↗
+                  </span>
+                </a>
+
+              </div>
+
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+
+    <!-- 歷年代表性指導 -->
+
+    <section>
+      <p class="section-label">
+        SELECTED EARLIER SUPERVISION
+      </p>
+
+      <h2>
+        <span data-lang="zh">
+          歷年代表性指導
+        </span>
+
+        <span data-lang="en">
+          Selected Earlier Supervision
+        </span>
+      </h2>
+
+      <p class="section-intro">
+        <span data-lang="zh">
+          除近期研究外，王雅萍教授長期指導原住民族教育、
+          語言、文化復振與民族學相關研究。
+        </span>
+
+        <span data-lang="en">
+          Earlier supervision also reflects long-term research
+          interests in Indigenous education, language,
+          cultural revitalization, and ethnology.
+        </span>
+      </p>
+
+      <div class="earlier-grid">
+        {
+          earlierStudents.map((student) => (
+            <a
+              class="earlier-card"
+              href={student.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <div class="card-top">
+                <span class="year">
+                  {student.year}
+                </span>
+
+                <span class="arrow">
+                  ↗
+                </span>
+              </div>
+
+              <p class="student-name">
+                <span data-lang="zh">
+                  {student.studentZh}
+                </span>
+
+                <span data-lang="en">
+                  {student.studentEn}
+                </span>
+              </p>
+
+              <p class="card-degree">
+                <span data-lang="zh">
+                  {student.degreeZh}
+                </span>
+
+                <span data-lang="en">
+                  {student.degreeEn}
+                </span>
+              </p>
+
+              <h3>
+                <span data-lang="zh">
+                  {student.titleZh}
+                </span>
+
+                <span data-lang="en">
+                  {student.titleEn}
+                </span>
+              </h3>
+
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+
+    <!-- 研究主題 -->
+
+    <section>
+      <p class="section-label">
+        RESEARCH THEMES
+      </p>
+
+      <h2>
+        <span data-lang="zh">
+          學生研究主題
+        </span>
+
+        <span data-lang="en">
+          Student Research Themes
+        </span>
+      </h2>
+
+      <div class="theme-grid">
+
+        <div class="theme">
+          <span>01</span>
+
+          <h3>
+            <span data-lang="zh">
+              原住民族教育
+            </span>
+
+            <span data-lang="en">
+              Indigenous Education
+            </span>
+          </h3>
+        </div>
+
+        <div class="theme">
+          <span>02</span>
+
+          <h3>
+            <span data-lang="zh">
+              族語與文化復振
+            </span>
+
+            <span data-lang="en">
+              Language & Cultural Revitalization
+            </span>
+          </h3>
+        </div>
+
+        <div class="theme">
+          <span>03</span>
+
+          <h3>
+            <span data-lang="zh">
+              部落與地方社會
+            </span>
+
+            <span data-lang="en">
+              Communities & Local Society
+            </span>
+          </h3>
+        </div>
+
+        <div class="theme">
+          <span>04</span>
+
+          <h3>
+            <span data-lang="zh">
+              族群認同與文化
+            </span>
+
+            <span data-lang="en">
+              Ethnic Identity & Culture
+            </span>
+          </h3>
+        </div>
+
+        <div class="theme">
+          <span>05</span>
+
+          <h3>
+            <span data-lang="zh">
+              土地與部落產業
+            </span>
+
+            <span data-lang="en">
+              Land & Indigenous Economies
+            </span>
+          </h3>
+        </div>
+
+        <div class="theme">
+          <span>06</span>
+
+          <h3>
+            <span data-lang="zh">
+              民俗與社會變遷
+            </span>
+
+            <span data-lang="en">
+              Folk Culture & Social Change
+            </span>
+          </h3>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 完整資料 -->
+
+    <section class="official-section">
+      <p class="section-label">
+        OFFICIAL RECORD
+      </p>
+
+      <h2>
+        <span data-lang="zh">
+          完整論文指導紀錄
+        </span>
+
+        <span data-lang="en">
+          Complete Supervision Record
+        </span>
+      </h2>
+
+      <p>
+        <span data-lang="zh">
+          政大 Academic Hub 收錄王雅萍教授完整的
+          碩、博士論文指導紀錄；最新資料請以官方系統為準。
+        </span>
+
+        <span data-lang="en">
+          NCCU Academic Hub maintains the complete record
+          of master's and doctoral theses supervised by Ong Nga Ping.
+        </span>
+      </p>
+
+      <div class="official-buttons">
+
+        <a
+          href="https://ah.lib.nccu.edu.tw/scholar?id=350&subtitle=advisor&title=university"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-lang="zh">
+            Academic Hub 指導紀錄 ↗
+          </span>
+
+          <span data-lang="en">
+            Academic Hub Record ↗
+          </span>
+        </a>
+
+        <a
+          href="https://thesis.lib.nccu.edu.tw/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span data-lang="zh">
+            政大博碩士論文系統 ↗
+          </span>
+
+          <span data-lang="en">
+            NCCU Thesis Database ↗
+          </span>
+        </a>
+
+      </div>
     </section>
 
   </main>
 </BaseLayout>
 
+
 <style>
-  .page {
-    width: min(1050px, calc(100% - 48px));
+  .supervision-page {
+    width: min(1080px, calc(100% - 48px));
     margin: 0 auto;
+
     padding: 100px 0 130px;
   }
 
+
+  /* HEADER */
+
   .page-header {
-    padding-bottom: 80px;
+    max-width: 850px;
+
+    padding-bottom: 90px;
   }
 
   .eyebrow,
   .section-label {
+    margin: 0 0 14px;
+
     color: var(--brown);
+
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.14em;
   }
 
   h1 {
-    margin: 12px 0 0;
-    font-size: clamp(48px, 7vw, 82px);
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: clamp(52px, 8vw, 88px);
+    line-height: 1.05;
   }
 
+  .intro {
+    max-width: 800px;
+
+    margin: 36px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 19px;
+    line-height: 1.9;
+  }
+
+
+  /* SECTION */
+
   section {
-    padding: 56px 0;
+    padding: 64px 0;
+
     border-top: 1px solid var(--border);
   }
 
   h2 {
-    font-size: 34px;
+    margin: 8px 0 42px;
+
+    color: var(--text);
+
+    font-size: clamp(30px, 4vw, 40px);
   }
 
-  .button {
+  .section-intro {
+    max-width: 760px;
+
+    margin: -15px 0 40px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+
+  /* STUDENT LIST */
+
+  .student-list {
+    border-top: 1px solid var(--border);
+  }
+
+  .student-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+
+    gap: 40px;
+
+    padding: 34px 0;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .student-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .year {
+    color: var(--brown);
+
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .degree {
+    padding: 5px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .student-name {
+    margin: 0 0 9px;
+
+    color: var(--green);
+
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .student-content h3 {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 20px;
+    line-height: 1.65;
+  }
+
+  .advisor {
+    margin: 13px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .thesis-link {
     display: inline-block;
 
-    margin-top: 15px;
-    padding: 14px 22px;
+    margin-top: 16px;
+
+    color: var(--green);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .thesis-link:hover {
+    text-decoration: underline;
+  }
+
+
+  /* EARLIER */
+
+  .earlier-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+  }
+
+  .earlier-card {
+    min-height: 300px;
+
+    display: block;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .earlier-card:hover {
+    border-color: var(--green);
+
+    background: rgba(47, 102, 82, 0.04);
+
+    transform: translateY(-3px);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+  }
+
+  .arrow {
+    color: var(--green);
+
+    font-size: 20px;
+  }
+
+  .card-degree {
+    margin: 0 0 15px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+  }
+
+  .earlier-card h3 {
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+
+  /* THEMES */
+
+  .theme-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+  }
+
+  .theme {
+    min-height: 150px;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .theme > span {
+    color: var(--brown);
+
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .theme h3 {
+    margin: 35px 0 0;
+
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+
+  /* OFFICIAL */
+
+  .official-section p {
+    max-width: 760px;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .official-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 28px;
+  }
+
+  .official-buttons a {
+    padding: 13px 20px;
 
     border: 1px solid var(--green);
     border-radius: 999px;
 
     color: var(--green);
+
     text-decoration: none;
+
+    font-size: 14px;
     font-weight: 700;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
   }
 
+  .official-buttons a:hover {
+    background: var(--green);
+
+    color: var(--background);
+  }
+
+
+  /* TABLET */
+
+  @media (max-width: 850px) {
+    .earlier-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .theme-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+
+  /* MOBILE */
+
   @media (max-width: 700px) {
-    .page {
+    .supervision-page {
       width: calc(100% - 40px);
+
       padding: 60px 0 80px;
+    }
+
+    .page-header {
+      padding-bottom: 60px;
+    }
+
+    .intro {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 45px 0;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .student-item {
+      grid-template-columns: 1fr;
+
+      gap: 18px;
+
+      padding: 27px 0;
+    }
+
+    .student-meta {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .student-content h3 {
+      font-size: 17px;
+    }
+
+    .earlier-card {
+      min-height: auto;
+
+      padding: 24px;
+    }
+
+    .theme-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .theme {
+      min-height: auto;
+    }
+
+    .official-buttons {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
